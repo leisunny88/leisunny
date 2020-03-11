@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}blog article{% endblock %}
+
+{% block content %}
+
+    <div class="row text-center vertical-middle-sm">
+        <h1>{{ article.title }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <p class="text-center"><span>{{ article.author.username }}</span><span
+                    style="margin-left: 20px">{{ publish }}</span></p>
+            <div>{{ article.body }}</div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <h2>广告</h2>
+            <p>我的博客:https://www.cnblogs.com/leisunny/</p>
+            <img width="200px" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1583389084183&amp;di=a01968b03296457e8be3da5f1beab13b&amp;imgtype=0&amp;src=http%3A%2F%2Fa3.att.hudong.com%2F14%2F75%2F01300000164186121366756803686.jpg">
+
+        </div>
+    </div>
+{% endblock %}

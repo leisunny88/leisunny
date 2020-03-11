@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}blog titles{% endblock %}
+
+{% block content %}
+
+    <div class="row text-center vertical-middle-sm">
+        <h1>交流中心</h1>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <ul>
+                {% for blog in blogs %}
+                    <li><a href="{{ blog.id }}">{{ blog.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <h2>广告</h2>
+            <p>我的博客：https://www.cnblogs.com/leisunny/</p>
+            <img width="200px" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1583389331368&amp;di=69a42908f462a33b9a7c397beaf75f57&amp;imgtype=0&amp;src=http%3A%2F%2Fa4.att.hudong.com%2F22%2F59%2F19300001325156131228593878903.jpg">
+        </div>
+    </div>
+{% endblock %}
