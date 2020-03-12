@@ -28,10 +28,13 @@ def register(request):
     if request.method == 'POST':
         user_form = RegistrationFrom(request.POST)
         user_profile_form = UserProfileForm(request.POST)
-        if user_form.is_valid():
-            nwe_user = user_form.save(commit=False)
-            nwe_user.set_password(user_form.cleaned_data['password'])
-            nwe_user.save()
+        if user_form.is_valid() and user_profile_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
+            new_profile = user_profile_form.save(commit=False)
+            new_profile.user = new_user
+            new_profile.save()
             return HttpResponse('successfully')
 
         else:
@@ -39,6 +42,7 @@ def register(request):
 
     else:
         user_form = RegistrationFrom()
-        return render(request, 'account/register.html', {'form': user_form})
+        user_profile_form = UserProfileForm()
+        return render(request, 'account/register.html', {'form': user_form, 'profile': user_profile_form})
 
 
